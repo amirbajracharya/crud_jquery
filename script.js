@@ -39,6 +39,14 @@ $(document).ready(function () {
       alert("Please fill in all fields");
       return;
     }
+
+    var phonePattern = /^[9][0-9]{9}$/;
+
+    if (!phonePattern.test(phone)) {
+      alert("Please enter a valid 10-digit phone number starting with 9");
+      return;
+    }
+
     if (editIndex === -1) {
       var contact = { name: name, phone: phone, email: email };
       contacts.push(contact);

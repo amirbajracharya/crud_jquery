@@ -1,11 +1,16 @@
+body {
+  font-family: Arial;
+  background: #1c31855d;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
 }
 .container {
-  width: 500px;
+  width: 600px;
   margin: 40px auto;
-  background: white;
+  background: rgba(255, 255, 255, 0.468);
   padding: 20px;
   border-radius: 5px;
 }
@@ -14,4 +19,11 @@ td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: center;
+}
+button {
+  padding: 8px 12px;
+  background: skyblue;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
