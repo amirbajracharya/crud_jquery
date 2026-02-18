@@ -17,12 +17,12 @@ $(document).ready(function () {
           "<td>" +
           contact.email +
           "</td>" +
-          '<td><button onclick="editContact(' +
+          '<td><button class="editBtn" data-index="' +
           index +
-          ')">Edit</button> ' +
-          '<button onclick="deleteContact(' +
+          '">Edit</button> ' +
+          '<button class="deleteBtn" data-index="' +
           index +
-          ')">Delete</button></td>' +
+          '">Delete</button></td>' +
           "</tr>",
       );
     });
@@ -30,6 +30,7 @@ $(document).ready(function () {
 
   $("#contactForm").submit(function (e) {
     e.preventDefault();
+
     var name = $("#name").val();
     var phone = $("#phone").val();
     var email = $("#email").val();
@@ -44,13 +45,27 @@ $(document).ready(function () {
     } else {
       contacts[editIndex] = { name: name, phone: phone, email: email };
       editIndex = -1;
+      $("#addBtn").text("Add Contact");
     }
     displayContacts();
-    $("#contactForm")[0].reset();
+    $("#name").val("");
+    $("#phone").val("");
+    $("#email").val("");
+  });
+
+  $("#contactList").on("click", ".deleteBtn", function () {
+    var index = $(this).data("index");
+    contacts.splice(index, 1);
+    displayContacts();
+  });
+
+  $("#contactList").on("click", ".editBtn", function () {
+    var index = $(this).data("index");
+    $("#name").val(contacts[index].name);
+    $("#phone").val(contacts[index].phone);
+    $("#email").val(contacts[index].email);
+
+    editIndex = index;
+    $("#addBtn").text("Update Contact");
   });
 });
-
-editIndex = index;
-$("#name").val(contacts[index].name);
-$("#phone").val(contacts[index].phone);
-$("#email").val(contacts[index].email);
