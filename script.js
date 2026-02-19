@@ -19,10 +19,10 @@ $(document).ready(function () {
           "</td>" +
           '<td><button class="editBtn" data-index="' +
           index +
-          '">Edit</button> ' +
+          '"><i class="fas fa-edit"></i></button> ' +
           '<button class="deleteBtn" data-index="' +
           index +
-          '">Delete</button></td>' +
+          '"><i class="fas fa-trash"></i></button></td>' +
           "</tr>",
       );
     });
@@ -47,6 +47,12 @@ $(document).ready(function () {
       return;
     }
 
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
     if (editIndex === -1) {
       var contact = { name: name, phone: phone, email: email };
       contacts.push(contact);
@@ -55,6 +61,7 @@ $(document).ready(function () {
       editIndex = -1;
       $("#addBtn").text("Add Contact");
     }
+
     displayContacts();
     $("#name").val("");
     $("#phone").val("");

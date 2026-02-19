@@ -1,6 +1,14 @@
+html,
 body {
-  font-family: Arial;
-  background: #1c31855d;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  /* background: linear-gradient(135deg, navy, steelblue); */
+  background-color: #f0f0f2;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
@@ -10,20 +18,22 @@ table {
 .container {
   width: 600px;
   margin: 40px auto;
-  background: rgba(255, 255, 255, 0.468);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 2px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 th,
 td {
-  border: 1px solid #ccc;
+  border: 1px solid black;
   padding: 8px;
   text-align: center;
 }
 button {
-  padding: 8px 12px;
+  padding: 8px;
   background: skyblue;
-  color: white;
+  font-weight: bold;
   border: none;
   cursor: pointer;
 }
